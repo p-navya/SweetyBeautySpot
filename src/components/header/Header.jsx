@@ -40,10 +40,10 @@ function Header() {
         <div className="relative flex justify-between items-center py-6">
           {/* Brand Name */}
           <Link to="/" className="flex items-start">
-            <img src={coloredLogoImg} alt="Sweety's Beauty Spot Logo" className="h-20 w-auto object-contain" />
+            <img src={coloredLogoImg} alt="Ramya's Beauty Spot Logo" className="h-20 w-auto object-contain" />
             <div className="leading-tight text-center">
               <h1 className="brand-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-                Sweety's Beauty Spot
+                Ramya's Beauty Spot
               </h1>
               <p className="text-sm sm:text-base lg:text-lg uppercase tracking-widest text-white/80">
                 Skin | Hair | Makeup

@@ -4,6 +4,9 @@ import aboutImg from '../../assets/about.png'
 import facialMaskImg from '../../assets/facial-mask.png'
 import hairCuttingImg from '../../assets/hair-cutting.png'
 import makeUpImg from '../../assets/make-up.png'
+import skinImg from '../../assets/skin.png'
+import hairImg from '../../assets/hair.png'
+import makeupImg from '../../assets/makeup.png'
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
@@ -23,52 +26,44 @@ const Home = () => {
 
   const testimonials = [
     {
-      initials: 'AR',
-      name: 'Aisha R.',
-      service: 'Bridal Makeup',
-      text: 'Sweety made me feel absolutely stunning on my wedding day. The makeup lasted all night and looked flawless in photos!'
+      name: 'Sravanthi',
+      text: 'Best bridal makeup! I looked stunning and the makeup lasted all night.'
     },
     {
-      initials: 'KM',
-      name: 'Karin M.',
-      service: 'Skincare Treatments',
-      text: 'My skin has never felt better. The facial was relaxing and the aftercare tips made a huge difference.'
+      name: 'Prasuna',
+      text: 'Amazing facial treatment. My skin is glowing and feels so fresh.'
     },
     {
-      initials: 'JS',
-      name: 'Julia S.',
-      service: 'Hair & Lashes',
-      text: 'Loved my lashes and hair styling! Super professional service and a really welcoming atmosphere.'
+      name: 'Kavya',
+      text: 'Perfect hair styling for my party. Got so many compliments!'
     },
     {
-      initials: 'PS',
-      name: 'Priya S.',
-      service: 'Complete Makeover',
-      text: 'Amazing transformation! Sweety understood exactly what I wanted and delivered beyond my expectations.'
+      name: 'Sharanya',
+      text: 'Love the home service. Very professional and convenient.'
     },
     {
-      initials: 'RM',
-      name: 'Rita M.',
-      service: 'Home Service',
-      text: 'So convenient having the service at home! Professional, clean, and the results were perfect.'
+      name: 'Greeshma',
+      text: 'The waxing was painless and my skin feels so smooth.'
     },
     {
-      initials: 'SK',
-      name: 'Sneha K.',
-      service: 'Party Makeup',
-      text: 'Got so many compliments at the party! The makeup was flawless and lasted the entire evening.'
+      name: 'Lakshmi',
+      text: 'Beautiful makeup for my engagement. Highly recommend!'
     },
     {
-      initials: 'AM',
-      name: 'Anita M.',
-      service: 'Skincare Consultation',
-      text: 'Best skincare advice I\'ve ever received. My skin is glowing now thanks to Sweety\'s expertise.'
+      name: 'Lalini',
+      text: 'Great hair spa treatment. My hair feels healthy and soft.'
     },
     {
-      initials: 'DK',
-      name: 'Deepika K.',
-      service: 'Hair Styling',
-      text: 'Love my new hairstyle! Sweety has such great taste and knows exactly what suits your face shape.'
+      name: 'Neelima',
+      text: 'Threading was quick and perfect. Very skilled work!'
+    },
+    {
+      name: 'Bhargavi',
+      text: 'Loved my party makeup. Looked flawless all evening.'
+    },
+    {
+      name: 'Rajini',
+      text: 'Excellent service and very friendly. Will definitely come back!'
     }
   ]
 
@@ -149,16 +144,19 @@ const Home = () => {
             </p>
             <div className="mb-8">
               <div className="inline-block px-4 py-3 md:px-6 md:py-4 bg-purple-600/10 backdrop-blur-sm border border-purple-400/20 rounded-lg text-white/90 text-xs md:text-sm font-medium">
-                Ladies Only Salon | Home Service Available
+                Only for Ladies | Home Service Available
               </div>
             </div>
             {/* CTA button */}
             <div className="w-full max-w-sm md:max-w-none md:w-[320px]">
-              <div className="bg-[hsl(var(--primary))]/30 backdrop-blur-md border border-[hsl(var(--primary))]/40 rounded-3xl shadow-lg p-3 md:p-4 hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
-                <Button asChild size="lg" className="w-full bg-[hsl(var(--primary))] hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 text-white rounded-2xl font-bold text-sm md:text-base transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105">
-                  <Link to="/contact" className="block w-full text-center" style={{fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: 'bold'}}>BOOK YOUR APPOINTMENT NOW!</Link>
+              <Button 
+                size="lg" 
+                className="w-full bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] text-white rounded-2xl font-bold text-sm md:text-base transition-all duration-300 hover:shadow-2xl hover:shadow-white"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                style={{fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: 'bold'}}
+              >
+                BOOK YOUR APPOINTMENT NOW!
               </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -170,7 +168,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="brand-heading text-2xl md:text-3xl lg:text-5xl font-extrabold leading-tight mb-2 text-white/85 whitespace-nowrap">
-                About Sweety's Beauty Spot
+                About Ramya's Beauty Spot
               </h2>
               
               {/* Your Glow, My Passion - Special Tagline */}
@@ -183,8 +181,8 @@ const Home = () => {
               <p className="text-lg text-white mb-4">
               Hello, I'm Ramya! This isn't a big salon—it's just me, doing what I love. I'm all about helping you feel confident and beautiful in your own skin. Whether it's glowing skin, healthy hair, or a fresh new look, every treatment is personal, with love and care in every detail.
               </p>
-              <p className="text-lg text-white mb-8">
-              <span className="text-[hsl(var(--primary))] font-semibold">Ladies Only Salon</span> • Home Service Available for your convenience
+              <p className="text-lg text-purple-400 mb-8 font-semibold">
+              Only for Ladies | Home Service Available for your convenience
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
@@ -208,7 +206,7 @@ const Home = () => {
       </section>
 
       {/* Services Preview Section */}
-      <section className="py-20 text-white" style={{backgroundColor: '#32194a'}} id="services">
+      <section className="py-12 md:py-16 text-white" style={{backgroundColor: '#32194a'}} id="services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Simple Services Heading */}
           <div className="text-center mb-12">
@@ -295,17 +293,22 @@ const Home = () => {
 
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--gradient-via))] to-[hsl(var(--background))] text-[hsl(var(--foreground))]">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--gradient-via))] to-[hsl(var(--background))] text-[hsl(var(--foreground))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">What my Clients Say</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">What My Clients Say</h2>
           </div>
 
           <div className="relative overflow-hidden">
             {/* Navigation Arrows */}
             <button 
-              onClick={() => setCurrentTestimonial((prev) => prev === 0 ? testimonials.length - 1 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-3 hover:bg-white/20 transition-colors"
+              onClick={() => setCurrentTestimonial((prev) => prev - 1)}
+              disabled={currentTestimonial === 0}
+              className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 rounded-full p-3 transition-colors ${
+                currentTestimonial === 0 
+                  ? 'bg-white/5 backdrop-blur-sm border border-white/10 cursor-not-allowed opacity-50' 
+                  : 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20'
+              }`}
             >
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -313,8 +316,13 @@ const Home = () => {
             </button>
             
             <button 
-              onClick={() => setCurrentTestimonial((prev) => prev === testimonials.length - 1 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-3 hover:bg-white/20 transition-colors"
+              onClick={() => setCurrentTestimonial((prev) => prev + 1)}
+              disabled={currentTestimonial === 2}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 rounded-full p-3 transition-colors ${
+                currentTestimonial === 2 
+                  ? 'bg-white/5 backdrop-blur-sm border border-white/10 cursor-not-allowed opacity-50' 
+                  : 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20'
+              }`}
             >
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -329,75 +337,11 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
                     {testimonials.slice(0, 3).map((test, cardIndex) => (
                       <div key={cardIndex} className="glass-card lift rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:rotate-1">
-              <div className="flex items-center mb-4">
-                          <div className="w-12 h-12 rounded-full bg-[hsl(var(--primary))] text-white flex items-center justify-center font-bold mr-3">
-                            {test.initials}
-                          </div>
-                <div>
-                            <div className="font-semibold">{test.name}</div>
-                            <div className="text-white/70 text-sm">{test.service}</div>
-                </div>
-              </div>
-              <div className="flex text-yellow-300 mb-3" aria-hidden="true">
-                {Array.from({ length: 5 }).map((_, i) => (
-                            <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118L10 13.348l-2.984 2.134c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.38 8.72c-.783-.57-.38-1.81.588-1.81H7.43a1 1 0 00.95-.69l1.07-3.292z"/>
-                            </svg>
-                ))}
-              </div>
-                        <p className="text-white/90">{test.text}</p>
-                      </div>
-                    ))}
-            </div>
-                </div>
-            </div>
-
-              {/* Second set - 3 cards */}
-              <div className="w-full flex-shrink-0 px-4">
-                <div className="max-w-4xl mx-auto">
-                  <div className="grid md:grid-cols-3 gap-8">
-                    {testimonials.slice(3, 6).map((test, cardIndex) => (
-                      <div key={cardIndex} className="glass-card lift rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:rotate-1">
-              <div className="flex items-center mb-4">
-                          <div className="w-12 h-12 rounded-full bg-[hsl(var(--primary))] text-white flex items-center justify-center font-bold mr-3">
-                            {test.initials}
-                          </div>
-                <div>
-                            <div className="font-semibold">{test.name}</div>
-                            <div className="text-white/70 text-sm">{test.service}</div>
-                </div>
-              </div>
-              <div className="flex text-yellow-300 mb-3" aria-hidden="true">
-                {Array.from({ length: 5 }).map((_, i) => (
-                            <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118L10 13.348l-2.984 2.134c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.38 8.72c-.783-.57-.38-1.81.588-1.81H7.43a1 1 0 00.95-.69l1.07-3.292z"/>
-                            </svg>
-                ))}
-              </div>
-                        <p className="text-white/90">{test.text}</p>
-                      </div>
-                    ))}
-            </div>
-                </div>
-            </div>
-
-              {/* Third set - 2 cards in 3-card layout */}
-              <div className="w-full flex-shrink-0 px-4">
-                <div className="max-w-4xl mx-auto">
-                  <div className="grid md:grid-cols-3 gap-8">
-                    {testimonials.slice(6, 8).map((test, cardIndex) => (
-                      <div key={cardIndex} className="glass-card lift rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:rotate-1">
-              <div className="flex items-center mb-4">
-                          <div className="w-12 h-12 rounded-full bg-[hsl(var(--primary))] text-white flex items-center justify-center font-bold mr-3">
-                            {test.initials}
-                          </div>
-                <div>
-                            <div className="font-semibold">{test.name}</div>
-                            <div className="text-white/70 text-sm">{test.service}</div>
-                </div>
-              </div>
-              <div className="flex text-yellow-300 mb-3" aria-hidden="true">
-                {Array.from({ length: 5 }).map((_, i) => (
+                        <div className="mb-4">
+                          <div className="font-semibold text-white text-lg mb-2">{test.name}</div>
+                        </div>
+                        <div className="flex text-yellow-300 mb-4" aria-hidden="true">
+                          {Array.from({ length: 5 }).map((_, i) => (
                             <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118L10 13.348l-2.984 2.134c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.38 8.72c-.783-.57-.38-1.81.588-1.81H7.43a1 1 0 00.95-.69l1.07-3.292z"/>
                             </svg>
@@ -406,8 +350,52 @@ const Home = () => {
                         <p className="text-white/90">{test.text}</p>
                       </div>
                     ))}
-                    {/* Empty space for third card position */}
-                    <div className="hidden md:block"></div>
+            </div>
+                </div>
+              </div>
+
+              {/* Second set - 3 cards */}
+              <div className="w-full flex-shrink-0 px-4">
+                <div className="max-w-4xl mx-auto">
+                  <div className="grid md:grid-cols-3 gap-8">
+                    {testimonials.slice(3, 6).map((test, cardIndex) => (
+                      <div key={cardIndex} className="glass-card lift rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:rotate-1">
+                        <div className="mb-4">
+                          <div className="font-semibold text-white text-lg mb-2">{test.name}</div>
+                        </div>
+                        <div className="flex text-yellow-300 mb-4" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                            <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118L10 13.348l-2.984 2.134c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.38 8.72c-.783-.57-.38-1.81.588-1.81H7.43a1 1 0 00.95-.69l1.07-3.292z"/>
+                            </svg>
+                ))}
+              </div>
+                        <p className="text-white/90">{test.text}</p>
+                      </div>
+                    ))}
+            </div>
+                </div>
+              </div>
+
+              {/* Third set - 4 cards */}
+              <div className="w-full flex-shrink-0 px-4">
+                <div className="max-w-5xl mx-auto">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {testimonials.slice(6, 10).map((test, cardIndex) => (
+                      <div key={cardIndex} className="glass-card lift rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:rotate-1">
+                        <div className="mb-4">
+                          <div className="font-semibold text-white text-lg mb-2">{test.name}</div>
+                        </div>
+                        <div className="flex text-yellow-300 mb-4" aria-hidden="true">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118L10 13.348l-2.984 2.134c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.38 8.72c-.783-.57-.38-1.81.588-1.81H7.43a1 1 0 00.95-.69l1.07-3.292z"/>
+                            </svg>
+                          ))}
+                        </div>
+                        <p className="text-white/90">{test.text}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -434,36 +422,36 @@ const Home = () => {
       {/* Combined CTA & Footer Section */}
       <footer className="text-[hsl(var(--foreground))] bg-gradient-to-b from-[hsl(var(--gradient-via))] to-[hsl(var(--background))]">
         {/* Image Gallery Section */}
-        <section className="py-20 text-white" style={{backgroundColor: '#32194a'}} id="gallery">
+        <section className="py-12 md:py-16 text-white" style={{backgroundColor: '#32194a'}} id="gallery">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Gallery</h2>
-</div>
+          <div className="text-center mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">Gallery</h2>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Gallery Image 1 */}
-            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-all duration-300">
-              <div className="aspect-square rounded-lg overflow-hidden">
-                <img src={aboutImg} alt="Beauty Service 1" className="w-full h-full object-cover" />
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Gallery Image 1 - Skin Care */}
+            <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img src={skinImg} alt="Skin Care Services" className="w-full h-full object-cover" />
               </div>
             </div>
             
-            {/* Gallery Image 2 */}
-            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-all duration-300">
-              <div className="aspect-square rounded-lg overflow-hidden">
-                <img src={heroImg} alt="Beauty Service 2" className="w-full h-full object-cover" />
+            {/* Gallery Image 2 - Hair Care */}
+            <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img src={hairImg} alt="Hair Care Services" className="w-full h-full object-cover" />
               </div>
             </div>
             
-            {/* Gallery Image 3 */}
-            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-all duration-300">
-              <div className="aspect-square rounded-lg overflow-hidden">
-                <img src={aboutImg} alt="Beauty Service 3" className="w-full h-full object-cover" />
+            {/* Gallery Image 3 - Makeup */}
+            <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img src={makeupImg} alt="Makeup Services" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-6">
             <Button asChild size="lg" className="bg-purple-600 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 text-white shine transition-all duration-300 hover:shadow-2xl hover:shadow-white hover:scale-105">
               <Link to="/gallery">View Full Gallery</Link>
             </Button>
@@ -472,9 +460,9 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--gradient-via))] to-[hsl(var(--background))] text-[hsl(var(--foreground))]" id="contact">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--gradient-via))] to-[hsl(var(--background))] text-[hsl(var(--foreground))]" id="contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Me</h2>
             </div>
           
@@ -607,11 +595,11 @@ const Home = () => {
             <div className="md:col-span-2 md:order-1">
               <Link to="/" className="flex items-center mb-3">
                 <h2 className="text-2xl font-bold text-[hsl(var(--foreground))]">
-                  Sweety's Beauty Spot
+                  Ramya's Beauty Spot
                 </h2>
               </Link>
               <p className="text-white/80 mb-3 max-w-md">
-                Your go-to spot for personalized beauty services. At Sweety's Beauty Spot, it's all about making you look and feel your best with expert hands, high-quality treatments and affordable pricing.
+                Your go-to spot for personalized beauty services. At Ramya's Beauty Spot, it's all about making you look and feel your best with expert hands, high-quality treatments and affordable pricing.
               </p>
             </div>
 
@@ -641,10 +629,10 @@ const Home = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <a 
-                    href="mailto:sweety.beautyspot@gmail.com"
+                    href="mailto:ramya.beautyspot@gmail.com"
                     className="text-gray-300 hover:text-[hsl(var(--primary))] transition-colors"
                   >
-                    sweety.beautyspot@gmail.com
+                    ramya.beautyspot@gmail.com
                   </a>
                 </div>
                 
@@ -653,12 +641,12 @@ const Home = () => {
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
                   <a 
-                    href="https://www.instagram.com/sweety.beautyspot?igsh=c24yajFqaDhnaWU0" 
+                    href="https://www.instagram.com/ramya.beautyspot?igsh=c24yajFqaDhnaWU0" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-[hsl(var(--primary))] transition-colors"
                   >
-                    @sweety.beautyspot
+                    @ramya.beautyspot
                   </a>
                 </div>
               </div>
@@ -669,7 +657,7 @@ const Home = () => {
           <div className="border-t border-white/10 mt-3 pt-2">
             <div className="flex justify-center items-center">
               <p className="text-white/70 text-xs">
-                © 2025 Sweety's Beauty Spot. All rights reserved.
+                © 2025 Ramya's Beauty Spot. All rights reserved.
               </p>
             </div>
           </div>
