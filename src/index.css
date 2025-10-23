@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+ :root {
+  --background: 267 55% 16%;
+  --foreground: 0 0% 100%;
+  --card: 266 38% 22%;
+  --card-foreground: 0 0% 100%;
+  --popover: 267 55% 16%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 266 85% 62%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 268 35% 36%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 267 30% 28%;
+  --muted-foreground: 0 0% 92%;
+  --accent: 268 45% 45%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 267 28% 32%;
+  --input: 267 28% 32%;
+  --ring: 266 85% 62%;
+  --radius: 0.5rem;
+  --gradient-start: 267 55% 16%;
+  --gradient-via: 266 45% 30%;
+  --gradient-end: 266 55% 40%;
+}
+
+.dark {
+  --background: 267 55% 12%;
+  --foreground: 0 0% 100%;
+  --card: 266 38% 20%;
+  --card-foreground: 0 0% 100%;
+  --popover: 267 55% 12%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 266 85% 62%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 268 35% 30%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 267 30% 24%;
+  --muted-foreground: 0 0% 92%;
+  --accent: 268 45% 40%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 31%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 267 28% 28%;
+  --input: 267 28% 28%;
+  --ring: 266 85% 62%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background:
+    radial-gradient(900px 600px at 10% 0%, hsl(var(--gradient-end) / 0.35), transparent 60%),
+    radial-gradient(800px 600px at 90% 10%, hsl(var(--primary) / 0.25), transparent 60%),
+    linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  color: hsl(var(--foreground));
+}
+
+/* Glassmorphism helper for translucent panels */
+.glass-card {
+  /* Lighter, more transparent look */
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Subtle dotted pattern overlay */
+.pattern-soft {
+  background-image:
+    radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* ------------------------------------- */
+/* UPDATED: Animated gradient with moving stripes */
+.animated-gradient {
+  /* Use background variable for a solid dark base color */
+  background-color: hsl(var(--background)); 
+
+  /* Overlay repeating stripes: 45deg light semi-transparent stripes */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 5px, /* Stripe thickness */
+    transparent 5px,
+    transparent 40px /* Gap between stripes */
+  );
+  
+  /* Ensure the background is large enough for movement */
+  background-size: 200px 200px;
+  
+  /* Apply the continuous animation */
+  animation: gradientShift 15s linear infinite;
+}
+
+/* Update keyframes for horizontal stripe movement */
+@keyframes gradientShift {
+  from { background-position: 0 0; }
+  to { background-position: -200px 0; } /* Shift the pattern horizontally */
+}
+/* ------------------------------------- */
+
+/* Brand heading font */
+.brand-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Card hover lift */
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px hsl(var(--primary) / 0.18);
+}
+.lift {
+  transition: transform 250ms ease, box-shadow 300ms ease;
+}
+
+/* Button shine on hover */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  transform: rotate(25deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: transform 600ms ease;
+}
+.shine:hover::after {
+  transform: translateX(300%) rotate(25deg);
+}
+
+/* Scroll reveal bounce-in for service cards */
+.reveal-card {
+  will-change: transform, opacity;
+}
+.reveal-card.in-view {
+  animation: popUp 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes popUp {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.5) translateY(30px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes settlePop {
+  0% { opacity: 0; transform: translateY(42px) scale(0.96); }
+  60% { opacity: 1; transform: translateY(-6px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Decorative floating icons (beautician items) */
+.decor-icon {
+  opacity: 0.9;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+  animation: floatY 10s ease-in-out infinite;
+}
+.decor-delay-1 { animation-delay: 0.8s; }
+.decor-delay-2 { animation-delay: 1.6s; }
+.decor-delay-3 { animation-delay: 2.4s; }
+@keyframes floatY {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Animated text gradient: orange → white → orange (like the sample) */
+.gradient-shine-orange {
+  background-image: linear-gradient(90deg, #FB8B23 0%, #ffffff 50%, #FB8B23 100%);
+  background-size: 200% auto;
+  animation: gradient-shine 8s linear infinite;
+}
+
+@keyframes gradient-shine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Corner light-streak gradient (like sweeping ribbons) */
+.ribbon-streaks {
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 120vmin;
+  height: 120vmin;
+  pointer-events: none;
+  opacity: 0.8;
+  filter: blur(6px) saturate(1.15);
+  background: repeating-conic-gradient(
+    from 20deg at 85% 15%,
+    rgba(255, 120, 0, 0.0) 0deg,
+    rgba(255, 120, 0, 0.0) 10deg,
+    rgba(255, 120, 0, 0.45) 12deg,
+    rgba(255, 190, 0, 0.55) 14deg,
+    rgba(255, 120, 0, 0.0) 16deg,
+    rgba(255, 120, 0, 0.0) 24deg
+  );
+  mask-image: radial-gradient(120vmin 120vmin at 85% 15%, #000 35%, transparent 60%);
+  animation: ribbonSweep 22s linear infinite;
+}
+
+/* Services section animated gradient background */
+.services-gradient {
+  background-image: linear-gradient(
+    120deg,
+    hsl(var(--gradient-start)) 0%,
+    hsl(var(--gradient-via)) 50%,
+    hsl(var(--gradient-end)) 100%
+  );
+  background-size: 250% 250%;
+  animation: servicesShift 18s ease-in-out infinite;
+}
+
+@keyframes servicesShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ribbonSweep {
+  0% { transform: rotate(0deg) translateZ(0); }
+  100% { transform: rotate(360deg) translateZ(0); }
+}
+
+/* ==== Roadmap / Timeline styles for Services ==== */
+.timeline {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.1));
+}
+.timeline-step {
+  position: relative;
+  margin-left: 2.5rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(24px) rotate(2.2deg);
+  transition: opacity 600ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.timeline-step.in-view {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+.timeline-step .dot {
+  position: absolute;
+  left: -2.25rem;
+  top: 0.25rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, hsl(var(--primary)) 40%, hsl(var(--primary)) 100%);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.06), 0 0 10px hsl(var(--primary) / 0.5);
+  transition: transform 220ms ease;
+}
+.timeline-step.in-view .dot { transform: scale(1.05); }
+.timeline-card {
+  background-color: rgba(0, 0, 0, 0.28);
+  border: 1px solid hsl(var(--primary) / 0.22);
+  /* backdrop blur is expensive; keep modest */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0.75rem;
+  will-change: transform;
+  transition: transform 220ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .timeline-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Swirly rotating overlay for sections */
+.swirl-overlay {
+  position: absolute;
+  inset: -20% -10% -20% -10%;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.15;
+  background:
+    radial-gradient(60% 40% at 20% 30%, hsl(var(--primary) / 0.25), transparent 70%),
+    radial-gradient(50% 35% at 80% 20%, hsl(var(--gradient-end) / 0.2), transparent 70%),
+    conic-gradient(from 0deg at 50% 50%,
+      transparent 0deg,
+      hsl(var(--primary) / 0.18) 40deg,
+      transparent 80deg,
+      hsl(var(--gradient-end) / 0.18) 140deg,
+      transparent 220deg,
+      hsl(var(--primary) / 0.18) 300deg,
+      transparent 360deg);
+  animation: swirlRotate 28s linear infinite;
+  filter: blur(8px) saturate(1.05);
+}
+
+@keyframes swirlRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.02); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Performance: pause animations until section is in view */
+.anim-paused { animation-play-state: paused; }
+.in-view .anim-paused { animation-play-state: running; }
+
+/* Outlined stroke text for Services heading */
+.stroke-text {
+  -webkit-text-stroke: 2px hsl(0, 0%, 100%); /* outline color - matches primary */
+  color: transparent;
+  opacity: 0.15; /* faint effect */
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient,
+  .services-gradient,
+  .swirl-overlay,
+  .gradient-shine-orange {
+    animation: none !important;
+  }
+  .timeline-step,
+  .reveal-card { transition: none; }
+}
